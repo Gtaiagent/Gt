@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT Game Ai - Joining Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-glow: #00d4ff;
+            --secondary-glow: #0055ff;
+            --bg-color: #050505;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animate {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            max-width: 420px;
+            width: 90%;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        /* Logo Styling */
+        .logo-box {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-glow);
+            object-fit: cover;
+            box-shadow: 0 0 25px var(--primary-glow);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, var(--primary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p { color: #aaa; margin-bottom: 25px; font-weight: 300; }
+
+        /* Progress Bar Section */
+        .loading-section { margin-bottom: 30px; }
+
+        .progress-container {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            height: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow));
+            box-shadow: 0 0 15px var(--primary-glow);
+            transition: width 0.1s linear;
+        }
+
+        .status-text {
+            font-size: 0.85rem;
+            color: var(--primary-glow);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* CTA Button */
+        .btn-join {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(45deg, #0088cc, #00d4ff);
+            color: white;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s all;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-join:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px var(--primary-glow); }
+            50% { transform: scale(1.03); box-shadow: 0 0 30px var(--primary-glow); }
+            100% { transform: scale(1); box-shadow: 0 0 15px var(--primary-glow); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animate"></div>
+
+    <div class="container">
+        <div class="logo-box">
+            <img src="WhatsApp Image 2026-01-29 at 19.36.47.jpeg" alt="Gt" class="logo-img">
+        </div>
+        
+        <h1>GT Game Ai</h1>
+        <p>All Game Ai Available - Join Now</p>
+
+        <div class="loading-section">
+            <div class="progress-container">
+                <div class="progress-bar" id="bar"></div>
+            </div>
+            <div class="status-text" id="status">Connecting... 5s</div>
+        </div>
+
+        <a href="https://t.me/+r9IfsuENXE44ODJl" class="btn-join">JOIN TELEGRAM</a>
+
+        <div style="margin-top: 30px; font-size: 0.7rem; color: #666; letter-spacing: 1px;">
+            SECURE LINK &bull; AI POWERED &bull; 2026
+        </div>
+    </div>
+
+    <script>
+        const targetURL = "https://t.me/+r9IfsuENXE44ODJl";
+        let countdown = 5;
+        const bar = document.getElementById('bar');
+        const status = document.getElementById('status');
+
+        // Logic for smooth progress bar and auto-redirect
+        const timer = setInterval(() => {
+            countdown -= 0.05;
+            let progress = ((5 - countdown) / 5) * 100;
+            bar.style.width = progress + "%";
+            
+            if (countdown <= 0) {
+                clearInterval(timer);
+                status.innerText = "Opening App...";
+                window.location.href = targetURL;
+            } else {
+                status.innerText = "Redirecting in " + Math.ceil(countdown) + "s...";
+            }
+        }, 50);
+
+        // Fail-safe redirect
+        setTimeout(() => {
+            window.location.href = targetURL;
+        }, 5500);
+    </script>
+</body>
+</html>
